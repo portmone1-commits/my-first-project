@@ -1,389 +1,726 @@
 <!doctype html>
-<html lang="uk" id="top">
+<html lang="uk">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Time to relax</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HolidayTime</title>
 
-    <!-- modern-normalize -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <!-- Fonts close to the макет (script title + clean sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=PT+Sans:wght@700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Marck+Script&family=Montserrat:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
-
 
     <link rel="stylesheet" href="./css/styles.css" />
 </head>
 
 <body>
-    <!-- HEADER -->
-    <header class="header">
-        <div class="container header__container">
-            <a class="brand" href="#top" aria-label="Time to relax" data-close-modals>
-
-                <span class="brand__badge">
-                    <img class="brand__img" src="./images/logo.jpg" alt="Логотип Time to relax" width="179"
-                        height="70" />
+    <!-- ======= HEADER (fixed) ======= -->
+    <header class="header" role="banner">
+        <div class="container header__inner">
+            <a class="brand" href="#" data-nav="home" aria-label="Time to relax — на головну">
+                <span class="brand__pill" aria-hidden="true">
+                    <img class="brand__logo" src="./images/logo.jpg" alt="Time to relax" width="86" height="32" />
                 </span>
             </a>
 
-            <nav class="nav" aria-label="Навігація">
+
+            <nav class="nav" aria-label="Головна навігація">
                 <ul class="nav__list">
-                    <li><a class="nav__link" href="" data-close-modals>ГОЛОВНА</a></li>
-
-                    <li><a class="nav__link" href="" data-modal-open="about">ПРО НАС</a></li>
-                    <li><a class="nav__link" href="" data-modal-open="book">ЗАБРОНЮВАТИ</a></li>
-                    <li><a class="nav__link" href="" data-modal-open="contacts">КОНТАКТИ</a></li>
-
-                    <li><a class="nav__link" href="" data-modal-open="cabinet">ОСОБИСТИЙ КАБІНЕТ</a></li>
+                    <li class="nav__item"><button class="nav__link" type="button" data-nav="home">ГОЛОВНА</button></li>
+                    <li class="nav__item"><button class="nav__link" type="button" data-nav="about">ПРО НАС</button></li>
+                    <li class="nav__item"><button class="nav__link" type="button"
+                            data-nav="booking">ЗАБРОНЮВАТИ</button></li>
+                    <li class="nav__item"><button class="nav__link" type="button" data-nav="contacts">КОНТАКТИ</button>
+                    </li>
+                    <li class="nav__item"><button class="nav__link" type="button"
+                            data-nav="profile">ОСОБИСТИЙ<br />КАБІНЕТ</button></li>
                 </ul>
             </nav>
 
-            <a class="lang" href="" aria-label="Змінити мову" data-modal-open="lang">
-                <span class="lang__divider" aria-hidden="true"></span>
-                <svg class="lang__icon" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"></circle>
-                    <path d="M2 12h20" fill="none" stroke="currentColor" stroke-width="2"></path>
-                    <path d="M12 2c3 3 4.5 6.7 4.5 10S15 19 12 22c-3-3-4.5-6.7-4.5-10S9 5 12 2Z" fill="none"
-                        stroke="currentColor" stroke-width="2"></path>
-                </svg>
-                <span class="lang__code">UA</span>
-            </a>
+            <button class="lang" type="button" aria-label="Мова: українська">
+                <span class="lang__icon" aria-hidden="true">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true">
+                        <path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Z" stroke="#fff" stroke-width="2" />
+                        <path d="M3.5 12h17" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                        <path d="M12 3c2.5 2.7 4 5.8 4 9s-1.5 6.3-4 9c-2.5-2.7-4-5.8-4-9s1.5-6.3 4-9Z" stroke="#fff"
+                            stroke-width="2" />
+                    </svg>
+                </span>
+                <span class="lang__text">UA</span>
+            </button>
         </div>
     </header>
 
-    <main>
-        <!-- HERO -->
-        <section class="section hero">
-            <div class="container">
-                <div class="frame hero__frame">
-                    <img class="hero__img" src="./images/backgraund1.jpg" alt="Гірський пейзаж" width="1485"
-                        height="369" loading="lazy" />
-                    <div class="hero__content">
-                        <h1 class="hero__title">Time to relax</h1>
-                        <p class="hero__subtitle">Автентичний відпочинок серед українського колориту!</p>
+    <!-- ======= HOME (base page) ======= -->
+    <main class="main" id="home" aria-label="Головна сторінка">
+        <section class="hero container">
+            <div class="hero__banner" role="img" aria-label="Гори та ліс">
+
+                <div class="hero__overlay">
+                    <h1 class="hero__title">HolidayTime</h1>
+                    <p class="hero__subtitle">Автентичний відпочинок серед українського колориту!</p>
+                </div>
+            </div>
+
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="slider">
+                <div class="slider__media" aria-hidden="true"></div>
+
+                <div class="slider__note">
+                    <p class="slider__text">
+                        Полонини Карпат, у селі Орів посеред гір розташувався затишний куточок для незабутніх вражень.
+                        Справжні українські гори, власноручне сироваріння на полонині, водоспади та вікові дерева
+                        чекають на Вас.
+                    </p>
+                    <button class="btn btn--pill btn--navy slider__btn" type="button" data-nav="booking">
+                        Переглянути <span aria-hidden="true">→</span>
+                    </button>
+
+                    <div class="dots" role="tablist" aria-label="Слайди">
+                        <button class="dot is-active" type="button" aria-label="Слайд 1"></button>
+                        <button class="dot" type="button" aria-label="Слайд 2"></button>
+                        <button class="dot" type="button" aria-label="Слайд 3"></button>
+                        <button class="dot" type="button" aria-label="Слайд 4"></button>
+                        <button class="dot" type="button" aria-label="Слайд 5"></button>
+                        <button class="dot" type="button" aria-label="Слайд 6"></button>
+                        <button class="dot" type="button" aria-label="Слайд 7"></button>
                     </div>
+                </div>
+
+                <button class="slider__arrow" type="button" aria-label="Наступний слайд">
+                    <span aria-hidden="true">›</span>
+                </button>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="feature">
+                <div class="feature__img" aria-hidden="true"></div>
+                <div class="feature__text">
+                    <p>
+                        Активний відпочинок у нетипових локаціях.<br />
+                        Незаймана природа та місцевий колорит<br />
+                        подарують Вам незабутні враження.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- SLIDER (static layout placeholder) -->
-        <section class="section slider-section">
-            <div class="container">
-                <div class="frame slider">
-                    <div class="slider__media">
-                        <img class="slider__img" src="./images/image3.jpg" alt="Будиночок серед Карпат" width="1488"
-                            height="604" loading="lazy" />
+        <section class="container">
+            <form class="feedback" autocomplete="on">
+                <h2 class="feedback__title">Зворотній зв’язок</h2>
 
-                        <button class="slider__arrow slider__arrow--right" type="button" aria-label="Наступний слайд">
-                            <span aria-hidden="true">›</span>
-                        </button>
+                <label class="field">
+                    <span class="field__label">Ім’я</span>
+                    <input class="field__input" type="text" name="name" placeholder="Введіть ім'я" />
+                </label>
 
-                        <div class="slider__panel" aria-label="Опис слайду">
-                            <p class="slider__text">
-                                Полонини Карпат, у селі Орів посеред гір розташувався затишний куточок для незабутніх
-                                вражень.
-                                Справжні українські гори, власноручне сироваріння на полонині, водоспади та вікові
-                                дерева чекають на
-                                Вас.
-                            </p>
+                <label class="field">
+                    <span class="field__label">Номер телефону</span>
+                    <input class="field__input" type="tel" name="phone" placeholder="Введіть номер телефону" />
+                </label>
 
-                            <a class="slider__btn" href="">
-                                Переглянути <span class="slider__btn-ico" aria-hidden="true">→</span>
-                            </a>
-                        </div>
-
-                        <ul class="slider__dots" aria-label="Перемикачі слайдів">
-                            <li><button class="dot" type="button" aria-label="Слайд 1"></button></li>
-                            <li><button class="dot is-active" type="button" aria-label="Слайд 2"></button></li>
-                            <li><button class="dot" type="button" aria-label="Слайд 3"></button></li>
-                            <li><button class="dot" type="button" aria-label="Слайд 4"></button></li>
-                            <li><button class="dot" type="button" aria-label="Слайд 5"></button></li>
-                            <li><button class="dot" type="button" aria-label="Слайд 6"></button></li>
-                            <li><button class="dot" type="button" aria-label="Слайд 7"></button></li>
-                            <li><button class="dot" type="button" aria-label="Слайд 8"></button></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TWO-COLUMN INFO -->
-        <section class="section info">
-            <div class="container">
-                <div class="frame info__frame">
-                    <div class="info__grid">
-                        <div class="info__img-wrap">
-                            <img class="info__img" src="./images/image4.jpg" alt="Пара біля панорамного вікна"
-                                width="698" height="349" loading="lazy" />
-                        </div>
-
-                        <div class="info__box">
-                            <p class="info__text">
-                                Активний відпочинок у нетипових локаціях.<br />
-                                Незаймана природа та місцевий колорит<br />
-                                подарують Вам незабутні враження.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FEEDBACK -->
-        <section class="section feedback">
-            <div class="container">
-                <form class="feedback__form" action="#" method="post">
-                    <h2 class="feedback__title">Зворотній зв’язок</h2>
-
-                    <label class="field">
-                        <span class="field__label">Ім’я</span>
-                        <input class="field__input" type="text" name="name" placeholder="Введіть ім’я" />
-                    </label>
-
-                    <label class="field">
-                        <span class="field__label">Номер телефону</span>
-                        <input class="field__input" type="tel" name="phone" placeholder="Введіть номер телефону" />
-                    </label>
-
-                    <button class="feedback__btn" type="submit">Запросити виклик</button>
-                </form>
-            </div>
+                <button class="btn btn--wide btn--navy" type="submit">Запросити виклик</button>
+            </form>
         </section>
     </main>
 
-    <!-- Scroll to top -->
-    <a class="to-top" href="#top" aria-label="Повернутися нагору">↑</a>
-    <!--Modal-->
-    <div class="backdrop backdrop--clear" data-modal="contacts" aria-hidden="true">
-        <div class="modal modal--page" role="dialog" aria-modal="true" aria-labelledby="contacts-title">
-            <button class="modal-x" type="button" data-modal-close aria-label="Закрити">×</button>
+    <!-- ======= PAGES OVER HOME (SPA overlays) ======= -->
+    <section class="page" data-page="about" aria-hidden="true">
+        <div class="page__titlebar">
+            <div class="container">
+                <h2 class="page__title">Про нас</h2>
+            </div>
+        </div>
 
-            <div class="page">
-                <div class="page__head">
-                    <h2 class="page__title" id="contacts-title">Контакти</h2>
-                </div>
-
-                <div class="page__body">
-                    <div class="contacts-top">
-                        <div class="contacts-block">
-                            <h3 class="contacts-h">Телефон</h3>
-                            <p class="contacts-p">+38(097)119-89-83</p>
-                        </div>
-
-                        <div class="contacts-block">
-                            <h3 class="contacts-h">Графік роботи</h3>
-                            <p class="contacts-p">пн-пт 08:00-22:00</p>
-                            <p class="contacts-p">сб 09:00-21:00</p>
-                            <p class="contacts-p">вс 10:00-20:00</p>
-                        </div>
-
-                        <div class="contacts-block">
-                            <h3 class="contacts-h">Ел. пошта</h3>
-                            <p class="contacts-p">hello@gmail.com</p>
-                        </div>
-                    </div>
-
-                    <div class="contacts-bottom">
-                        <div class="contacts-block contacts-block--wide">
-                            <h3 class="contacts-h contacts-h--wide">Адреса офісу</h3>
-                            <p class="contacts-p">м. Київ, вул. Малевича, буд. 4</p>
-                        </div>
-
-                        <div class="map">
-                            <!-- ВАРІАНТ 1: картинка як у твоєму файлі зі скріна -->
-                            <!-- поклади картинку у /images як map.jpg -->
-                            <img class="map__img" src="./images/map.jpg" alt="Карта офісу" loading="lazy" />
-
-                            <!-- ВАРІАНТ 2: iframe (якщо хочеш реальну карту)
-                <iframe class="map__iframe" src="..." loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                -->
-                        </div>
+        <div class="container page__content">
+            <div class="about-hero" role="img" aria-label="Ліс та вода">
+                <div class="about-hero__overlay">
+                    <div class="about-hero__brand">HolidayTime</div>
+                    <div class="about-hero__tag">
+                        Відпочинок, емоції, враження, нетипові маршрути, неймовірні локації —<br />
+                        це все про сільський еко-туризм в Україні
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="backdrop backdrop--clear" data-modal="cabinet" aria-hidden="true">
-        <div class="modal modal--page" role="dialog" aria-modal="true" aria-labelledby="cabinet-title">
-            <button class="modal-x" type="button" data-modal-close aria-label="Закрити">×</button>
 
-            <div class="page">
-                <div class="page__head">
-                    <h2 class="page__title" id="cabinet-title">Особистий кабінет</h2>
+            <div class="text-panel">
+                <p>Наша команда зібрала найколоритніші місця нашої країни саме для тебе.</p>
+                <p>
+                    Місія нашої компанії — подарувати незабутні враження та показати Україну з іншої сторони.
+                    Пройти разом з Вами лісовими стежками, щоб попоїсти свіжого карпатського сиру.
+                    Пірнути у каньйон та побачити занурене під товщу років село Бакота.
+                    Покататись на гандолах в “українській Венеції”.
+                </p>
+                <p>Пізнати Україну разом!</p>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <span>© 2021 HolidayTime. All rights reserved.</span>
+            </div>
+        </footer>
+
+        <button class="to-top" type="button" data-to-top aria-label="Вгору">↑</button>
+    </section>
+
+    <section class="page" data-page="contacts" aria-hidden="true">
+        <div class="page__titlebar">
+            <div class="container">
+                <h2 class="page__title">Контакти</h2>
+            </div>
+        </div>
+
+        <div class="container page__content">
+            <div class="contacts-grid">
+                <div class="contacts-col">
+                    <div class="contacts-col__head">Телефон</div>
+                    <div class="contacts-col__value">+38(097)119-89-83</div>
                 </div>
 
-                <div class="page__body page__body--center">
-                    <div class="cabinet-card">
-                        <div class="cabinet-left">
-                            <div class="avatar">
-                                <!-- простий ікон -->
-                                <svg width="62" height="62" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path
-                                        d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-4.42 0-8 2-8 4v2h16v-2c0-2-3.58-4-8-4Z"
-                                        fill="none" stroke="currentColor" stroke-width="2" />
-                                </svg>
-                            </div>
+                <div class="contacts-col">
+                    <div class="contacts-col__head">Графік роботи</div>
+                    <div class="contacts-col__value">
+                        пн-пт 08:00-22:00<br />
+                        сб 09:00-21:00<br />
+                        вс 10:00-20:00
+                    </div>
+                </div>
 
-                            <button class="cabinet-btn cabinet-btn--primary" type="button">Змінити аватар</button>
-                            <button class="cabinet-btn" type="button">Налаштування</button>
-                        </div>
+                <div class="contacts-col">
+                    <div class="contacts-col__head">Ел. пошта</div>
+                    <div class="contacts-col__value">hello@gmail.com</div>
+                </div>
 
-                        <div class="cabinet-right">
-                            <div class="row">
-                                <span class="row__label">Петров Іван Іванович</span>
-                            </div>
+                <div class="contacts-col contacts-col--address">
+                    <div class="contacts-col__head">Адреса офісу</div>
+                    <div class="contacts-col__value">м. Київ, вул. Малевича, буд. 4</div>
+                </div>
 
-                            <div class="row">
-                                <span class="row__label">Стать:</span>
-                                <span class="row__value">чоловіча</span>
-                            </div>
+                <div class="map-wrap" aria-label="Мапа">
+                    <!-- Replace src with your real embed -->
+                    <iframe title="Карта" class="map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                        src="https://www.google.com/maps?q=Kyiv%20Malevycha%204&output=embed">
+                    </iframe>
+                </div>
+            </div>
+        </div>
 
-                            <div class="row">
-                                <span class="row__label">Дата народження:</span>
-                                <span class="row__value">10. 02. 1998</span>
-                            </div>
+        <footer class="footer">
+            <div class="container footer__inner">
+                <span>© 2021 HolidayTime. All rights reserved.</span>
+            </div>
+        </footer>
 
-                            <div class="row">
-                                <span class="row__label">Мобільний телефон:</span>
-                                <span class="row__value">+38(097)346-72-50</span>
-                            </div>
+        <button class="to-top" type="button" data-to-top aria-label="Вгору">↑</button>
+    </section>
 
-                            <div class="row row--last">
-                                <span class="row__label">Ел. пошта:</span>
-                                <span class="row__value">petrov@gmail.com</span>
-                            </div>
-                        </div>
+    <section class="page" data-page="profile" aria-hidden="true">
+        <div class="page__titlebar">
+            <div class="container">
+                <h2 class="page__title">Особистий кабінет</h2>
+            </div>
+        </div>
+
+        <div class="container page__content">
+            <div class="profile-card">
+                <div class="profile-card__left">
+                    <div class="avatar" aria-hidden="true">
+                        <svg width="86" height="86" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true">
+                            <path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z" stroke="#2E3550" stroke-width="1.8" />
+                            <path d="M4 21c1.4-4 14.6-4 16 0" stroke="#2E3550" stroke-width="1.8"
+                                stroke-linecap="round" />
+                        </svg>
                     </div>
 
-                    <button class="logout" type="button">Вийти</button>
+                    <button class="btn btn--pill btn--soft" type="button">Змінити аватар</button>
+                    <button class="btn btn--pill btn--dark" type="button">Налаштування</button>
+                </div>
+
+                <div class="profile-card__right">
+                    <dl class="profile-list">
+                        <div class="profile-row">
+                            <dt>Петров Іван Іванович</dt>
+                            <dd></dd>
+                        </div>
+
+                        <div class="profile-row">
+                            <dt><span class="k">Стать:</span> чоловіча</dt>
+                            <dd></dd>
+                        </div>
+
+                        <div class="profile-row">
+                            <dt><span class="k">Дата народження:</span> 10.02.1998</dt>
+                            <dd></dd>
+                        </div>
+
+                        <div class="profile-row">
+                            <dt><span class="k">Мобільний телефон:</span> +38(097)346-72-50</dt>
+                            <dd></dd>
+                        </div>
+
+                        <div class="profile-row">
+                            <dt><span class="k">Ел. пошта:</span> petrov@gmail.com</dt>
+                            <dd></dd>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="center">
+                <button class="btn btn--pill btn--navy btn--xl" type="button">Вийти</button>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <span>© 2021 HolidayTime. All rights reserved.</span>
+            </div>
+        </footer>
+
+        <button class="to-top" type="button" data-to-top aria-label="Вгору">↑</button>
+    </section>
+
+    <!-- ======= BOOKING (page + nested modals) ======= -->
+    <section class="page" data-page="booking" aria-hidden="true">
+        <div class="page__titlebar">
+            <div class="container">
+                <h2 class="page__title">Забронювати будиночок</h2>
+            </div>
+        </div>
+
+        <div class="container page__content">
+            <div class="selectbar" role="button" tabindex="0" aria-label="Оберіть місцерозташування">
+                <span>Оберіть місцерозташування</span>
+                <span class="selectbar__arrow" aria-hidden="true">▾</span>
+            </div>
+
+            <div class="booking-list">
+                <!-- Card 1 -->
+                <article class="booking-card">
+                    <img class="booking-card__img" src="./images/booking-01.jpg" alt="Незвідана Бакота"
+                        onerror="this.style.display='none'">
+                    <div class="booking-card__body">
+                        <div class="booking-card__head">
+                            <h3 class="booking-card__title">Незвідана Бакота</h3>
+                            <button class="star" type="button" aria-label="Додати в обране">★</button>
+                        </div>
+                        <p class="booking-card__text">
+                            У Хмельницькій області розташований загублений край — Бакота. Мальовничий каньйон з давньою
+                            історією
+                            захоплює своїми просторами та незвичною атмосферою. Бджільництво, свіжий мед із польових
+                            трав, дотик до природи.
+                        </p>
+                        <button class="btn btn--pill btn--navy booking-card__btn" type="button"
+                            data-open="booking-house">
+                            Детальніше
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Card 2 (the one from Home slider) -->
+                <article class="booking-card">
+                    <img class="booking-card__img" src="./images/booking-02.jpg" alt="Полонини Карпат"
+                        onerror="this.style.display='none'">
+                    <div class="booking-card__body">
+                        <div class="booking-card__head">
+                            <h3 class="booking-card__title">Полонини Карпат</h3>
+                            <button class="star" type="button" aria-label="Додати в обране">★</button>
+                        </div>
+                        <p class="booking-card__text">
+                            Полонини Карпат, у селі Орів посеред гір розташувався затишний куточок для незабутніх
+                            вражень.
+                            Справжні українські гори, власноручне сироваріння на полонині, водоспади та вікові дерева
+                            чекають на Вас.
+                        </p>
+                        <button class="btn btn--pill btn--navy booking-card__btn" type="button"
+                            data-open="booking-house">
+                            Детальніше
+                        </button>
+                    </div>
+                </article>
+
+                <article class="booking-card">
+                    <img class="booking-card__img" src="./images/booking-03.jpg" alt="Автентична Київщина"
+                        onerror="this.style.display='none'">
+                    <div class="booking-card__body">
+                        <div class="booking-card__head">
+                            <h3 class="booking-card__title">Автентична Київщина</h3>
+                            <button class="star" type="button" aria-label="Додати в обране">★</button>
+                        </div>
+                        <p class="booking-card__text">
+                            Неподалік центра Києва розташувалось автентичне українське село на території однойменного
+                            села Пирогово.
+                            Дерев’яні млини, запашний хліб, приготовлений своїми руками, українські пісні та багато
+                            іншого чекає на вас уже зараз.
+                        </p>
+                        <button class="btn btn--pill btn--navy booking-card__btn" type="button"
+                            data-open="booking-house">
+                            Детальніше
+                        </button>
+                    </div>
+                </article>
+
+                <article class="booking-card">
+                    <img class="booking-card__img" src="./images/booking-04.jpg" alt="Нетипова Одещина"
+                        onerror="this.style.display='none'">
+                    <div class="booking-card__body">
+                        <div class="booking-card__head">
+                            <h3 class="booking-card__title">Нетипова Одещина</h3>
+                            <button class="star" type="button" aria-label="Додати в обране">★</button>
+                        </div>
+                        <p class="booking-card__text">
+                            В Одеській області знаходиться мальовниче містечко Вилкове. Його ще називають “українською
+                            Венецією”.
+                            Вилкове — це містечко на воді, весь в каналах. Розташоване в місці, де зустрічаються річка
+                            Дунай і Чорне море.
+                            Люди пересуваються переважно човнами. Нетипове українське село не залишить Вас без вражень.
+                        </p>
+                        <button class="btn btn--pill btn--navy booking-card__btn" type="button"
+                            data-open="booking-house">
+                            Детальніше
+                        </button>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container footer__inner">
+                <span>© 2021 HolidayTime. All rights reserved.</span>
+            </div>
+        </footer>
+
+        <button class="to-top" type="button" data-to-top aria-label="Вгору">↑</button>
+    </section>
+
+    <!-- ======= BOOKING HOUSE DETAILS (overlay page) ======= -->
+    <section class="page" data-page="booking-house" aria-hidden="true">
+        <div class="page__titlebar">
+            <div class="container">
+                <h2 class="page__title">Бронювання будиночка в Карпатах</h2>
+            </div>
+        </div>
+
+        <div class="container page__content">
+            <button class="btn btn--pill btn--navy back" type="button" data-nav="booking">
+                <span aria-hidden="true">←</span> Назад
+            </button>
+
+            <div class="house-top">
+                <div class="house-top__img" aria-hidden="true"></div>
+                <div class="house-top__desc">
+                    <p>
+                        Затишні дерев’яні будиночки, які заховались на окріїні лісу, зустрічатимуть Вас чудовим
+                        краєвидом
+                        на ранкові полонини.
+                    </p>
+                    <p>
+                        Ви можете обрати кількість кімнат та місце, яке буде ідеальним для Вас. Територія, на якій
+                        базуються
+                        будиночки, підійде як і для великих компаній, яким потрібно бути поряд у декількох будинках,
+                        так і для пар, які хочуть бути наодинці.
+                    </p>
+                </div>
+            </div>
+
+            <div class="house-gallery">
+                <div class="g g1" aria-hidden="true"></div>
+                <div class="g g2" aria-hidden="true"></div>
+                <div class="g g3" aria-hidden="true"></div>
+            </div>
+
+            <h3 class="section-head">Наявність місць</h3>
+
+            <div class="availability">
+                <div class="availability__question">Коли б Ви хотіли зупинитись в помешканні Полонини Карпат?</div>
+
+                <form class="availability__form" autocomplete="off">
+                    <label class="mini">
+                        <span class="mini__label">Дата заїзду</span>
+                        <div class="mini__control">
+                            <span class="mini__icon" aria-hidden="true">📅</span>
+                            <input class="mini__input" type="text" placeholder="Дата заїзду" />
+                            <span class="mini__caret" aria-hidden="true">▾</span>
+                        </div>
+                    </label>
+
+                    <label class="mini">
+                        <span class="mini__label">Дата виїзду</span>
+                        <div class="mini__control">
+                            <span class="mini__icon" aria-hidden="true">📅</span>
+                            <input class="mini__input" type="text" placeholder="Дата виїзду" />
+                            <span class="mini__caret" aria-hidden="true">▾</span>
+                        </div>
+                    </label>
+
+                    <label class="mini mini--spin">
+                        <span class="mini__label">Номери</span>
+                        <input class="spin" type="number" min="0" value="1" />
+                    </label>
+
+                    <label class="mini mini--spin">
+                        <span class="mini__label">Дорослі</span>
+                        <input class="spin" type="number" min="0" value="2" />
+                    </label>
+
+                    <label class="mini mini--spin">
+                        <span class="mini__label">Діти</span>
+                        <input class="spin" type="number" min="0" value="0" />
+                    </label>
+
+                    <button class="btn btn--navy btn--block" type="button" data-modal-open="availability">
+                        Перевірити наявність<br />вільних місць
+                    </button>
+                </form>
+            </div>
+
+            <div class="rooms">
+                <div class="rooms__head">
+                    <div class="rooms__cell rooms__cell--cap">Вміщує</div>
+                    <div class="rooms__cell rooms__cell--type">Тип розміщення</div>
+                    <div class="rooms__cell rooms__cell--price">Ціна</div>
+                </div>
+
+                <div class="rooms__row">
+                    <div class="rooms__cell rooms__cell--cap">
+                        <span class="cap" aria-hidden="true">👤👤</span>
+                    </div>
+                    <div class="rooms__cell rooms__cell--type">
+                        <div class="rooms__title">Двомісний номер</div>
+                        <div class="rooms__meta">1 широке двоспальне ліжко <span aria-hidden="true">🛏</span></div>
+                    </div>
+                    <div class="rooms__cell rooms__cell--price">
+                        <button class="btn btn--pill btn--soft btn--price" type="button"
+                            data-modal-open="prices">Показати ціни</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="backdrop backdrop--clear" data-modal="lang" aria-hidden="true"><a class="lang" href=""
-            aria-label="Змінити мову" data-modal-open="lang">
 
-            <div class="backdrop backdrop--clear" data-modal="lang" aria-hidden="true">
-                <div class="modal modal--lang" role="dialog" aria-modal="true" aria-label="Вибір мови">
-                    <button class="modal-x" type="button" data-modal-close aria-label="Закрити">×</button>
-
-                    <button class="lang-opt" type="button">UA</button>
-                    <button class="lang-opt" type="button">PL</button>
-                    <button class="lang-opt" type="button">EN</button>
-                </div>
+        <footer class="footer">
+            <div class="container footer__inner">
+                <span>© 2021 HolidayTime. All rights reserved.</span>
             </div>
+        </footer>
 
-    </div>
-    <div class="backdrop backdrop--clear" data-modal="about" aria-hidden="true">
-        <div class="modal modal--page" role="dialog" aria-modal="true" aria-labelledby="about-title">
-            <button class="modal-x" type="button" data-modal-close aria-label="Закрити">×</button>
-            <div class="page">
-                <div class="page__head">
-                    <h2 class="page__title" id="about-title">Про нас</h2>
-                </div>
-                <div class="page__body">
-                    <p>Контент додаси пізніше.</p>
-                </div>
+        <button class="to-top" type="button" data-to-top aria-label="Вгору">↑</button>
+    </section>
+
+    <!-- ======= MODALS (Booking: 2 modal screens) ======= -->
+    <div class="modal-backdrop" data-modal="prices" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="prices-title">
+            <button class="modal__close" type="button" data-modal-close aria-label="Закрити">×</button>
+            <h3 class="modal__title" id="prices-title">Ціни на проживання</h3>
+
+            <div class="modal__content">
+                <table class="price-table" aria-label="Таблиця цін">
+                    <thead>
+                        <tr>
+                            <th>Період</th>
+                            <th>Ціна/ніч</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Будні</td>
+                            <td>1200 грн</td>
+                        </tr>
+                        <tr>
+                            <td>Вихідні</td>
+                            <td>1600 грн</td>
+                        </tr>
+                        <tr>
+                            <td>Свята</td>
+                            <td>1900 грн</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="btn btn--navy btn--wide" type="button" data-modal-close data-modal-open="booking-form">
+                    Забронювати
+                </button>
             </div>
         </div>
     </div>
 
-    <div class="backdrop backdrop--clear" data-modal="book" aria-hidden="true">
-        <div class="modal modal--page" role="dialog" aria-modal="true" aria-labelledby="book-title">
-            <button class="modal-x" type="button" data-modal-close aria-label="Закрити">×</button>
-            <div class="page">
-                <div class="page__head">
-                    <h2 class="page__title" id="book-title">Забронювати</h2>
-                </div>
-                <div class="page__body">
-                    <p>Форму бронювання додаси пізніше.</p>
-                </div>
+    <div class="modal-backdrop" data-modal="booking-form" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="book-title">
+            <button class="modal__close" type="button" data-modal-close aria-label="Закрити">×</button>
+            <h3 class="modal__title" id="book-title">Оформлення бронювання</h3>
+
+            <form class="modal__content book-form" autocomplete="on">
+                <label class="field">
+                    <span class="field__label">ПІБ</span>
+                    <input class="field__input" type="text" name="full_name" placeholder="Введіть ПІБ" required />
+                </label>
+
+                <label class="field">
+                    <span class="field__label">Телефон</span>
+                    <input class="field__input" type="tel" name="phone" placeholder="+38(0__)___-__-__" required />
+                </label>
+
+                <label class="field">
+                    <span class="field__label">Пошта</span>
+                    <input class="field__input" type="email" name="email" placeholder="example@email.com" required />
+                </label>
+
+                <button class="btn btn--navy btn--wide" type="submit">Підтвердити</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" data-modal="availability" aria-hidden="true">
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="avail-title">
+            <button class="modal__close" type="button" data-modal-close aria-label="Закрити">×</button>
+            <h3 class="modal__title" id="avail-title">Результат перевірки</h3>
+            <div class="modal__content">
+                <p class="muted">
+                    Демонстраційне вікно: тут можна показувати “є/немає місць”, деталі по датах та кнопку “Показати
+                    ціни”.
+                </p>
+                <button class="btn btn--navy btn--wide" type="button" data-modal-close data-modal-open="prices">Показати
+                    ціни</button>
             </div>
         </div>
     </div>
-    <!-- FOOTER -->
+
+    <!-- ======= FOOTER (home) ======= -->
     <footer class="footer">
-        <div class="container footer__container">
-            <p class="footer__copy">© 2025 Time to relax. All rights reserved.</p>
+        <div class="container footer__inner">
+            <span>© 2025 Time to relax. All rights reserved.</span>
         </div>
     </footer>
+
+    <button class="to-top" type="button" data-to-top aria-label="Вгору">↑</button>
+
+    <!-- ======= SPA / MODAL JS (inline as requested: only index.html + styles.css) ======= -->
     <script>
-        (() => {
-            const OPEN_CLASS = "is-open";
-            const BODY_CLASS = "is-modal-page";
+        (function () {
+            const header = document.querySelector('.header');
+            const pages = Array.from(document.querySelectorAll('.page[data-page]'));
+            const navButtons = Array.from(document.querySelectorAll('[data-nav]'));
+            const openButtons = Array.from(document.querySelectorAll('[data-open]'));
+            const toTopButtons = Array.from(document.querySelectorAll('[data-to-top]'));
 
-            const modals = () => [...document.querySelectorAll("[data-modal]")];
+            function setAriaHidden(el, hidden) {
+                el.setAttribute('aria-hidden', hidden ? 'true' : 'false');
+            }
 
-            function closeAll() {
-                modals().forEach(m => {
-                    m.classList.remove(OPEN_CLASS);
-                    m.setAttribute("aria-hidden", "true");
+            function closeAllPages() {
+                pages.forEach(p => {
+                    p.classList.remove('is-open');
+                    setAriaHidden(p, true);
                 });
-                document.body.classList.remove(BODY_CLASS);
+                document.body.classList.remove('no-scroll');
             }
 
-            function openModal(name) {
-                closeAll();
-                const modal = document.querySelector(`[data-modal="${name}"]`);
-                if (!modal) return;
-
-                modal.classList.add(OPEN_CLASS);
-                modal.setAttribute("aria-hidden", "false");
-                document.body.classList.add(BODY_CLASS);
-
-                // прокрутка вгору модальної сторінки (як у проєкті)
-                window.scrollTo({ top: 0, behavior: "smooth" });
+            function openPage(name) {
+                if (name === 'home') {
+                    closeAllPages();
+                    return;
+                }
+                pages.forEach(p => {
+                    const isTarget = p.dataset.page === name;
+                    p.classList.toggle('is-open', isTarget);
+                    setAriaHidden(p, !isTarget);
+                });
+                document.body.classList.add('no-scroll');
+                // scroll overlay to top so it matches “opens over main”
+                const active = document.querySelector('.page.is-open');
+                if (active) active.scrollTo({ top: 0, behavior: 'instant' });
             }
 
-            document.addEventListener("click", (e) => {
-                const openEl = e.target.closest("[data-modal-open]");
-                const closeAllEl = e.target.closest("[data-close-modals]");
-                const closeBtn = e.target.closest("[data-modal-close]");
+            // NAV
+            navButtons.forEach(btn => {
+                btn.addEventListener('click', () => openPage(btn.dataset.nav));
+            });
 
-                // 1) Закриття по хрестику
-                if (closeBtn) {
-                    e.preventDefault();
-                    closeAll();
-                    return;
-                }
+            // OPEN page from card buttons
+            openButtons.forEach(btn => {
+                btn.addEventListener('click', () => openPage(btn.dataset.open));
+            });
 
-                // 2) Головна/Лого: просто закриваємо модалки
-                if (closeAllEl) {
-                    // не даємо перезавантажити сторінку, якщо href порожній
-                    const href = closeAllEl.getAttribute("href") || "";
-                    if (href === "" || href === "#") e.preventDefault();
-                    closeAll();
-                    return;
-                }
+            // ===== Modals =====
+            const modalBackdrops = Array.from(document.querySelectorAll('.modal-backdrop[data-modal]'));
 
-                // 3) Відкриття конкретної модалки
-                if (openEl) {
-                    e.preventDefault();
-                    openModal(openEl.dataset.modalOpen);
-                    return;
-                }
+            function closeAllModals() {
+                modalBackdrops.forEach(b => {
+                    b.classList.remove('is-open');
+                    b.setAttribute('aria-hidden', 'true');
+                });
+            }
 
-                // 4) Клік по фону (якщо ти все ж лишив бекдроп) — закрити
-                const backdrop = e.target.closest(".backdrop");
-                if (backdrop && e.target === backdrop) {
-                    closeAll();
+            function openModal(id) {
+                closeAllModals();
+                const b = modalBackdrops.find(x => x.dataset.modal === id);
+                if (!b) return;
+                b.classList.add('is-open');
+                b.setAttribute('aria-hidden', 'false');
+                // keep body locked when any page open; if user opened modal over home, lock too
+                document.body.classList.add('no-scroll');
+
+                const focusable = b.querySelector('button, input, select, textarea, a[href]');
+                if (focusable) focusable.focus();
+            }
+
+            document.addEventListener('click', (e) => {
+                const open = e.target.closest('[data-modal-open]');
+                if (open) openModal(open.dataset.modalOpen);
+
+                const close = e.target.closest('[data-modal-close]');
+                if (close) closeAllModals();
+
+                const backdrop = e.target.classList.contains('modal-backdrop') ? e.target : null;
+                if (backdrop) closeAllModals();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeAllModals();
                 }
             });
 
-            // ESC — закрити
-            document.addEventListener("keydown", (e) => {
-                if (e.key === "Escape") closeAll();
-            });
+            // ===== Scroll to top =====
+            function activeScroller() {
+                const page = document.querySelector('.page.is-open');
+                return page || window;
+            }
 
+            function scrollTop() {
+                const scroller = activeScroller();
+                if (scroller === window) {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    scroller.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+
+            toTopButtons.forEach(btn => btn.addEventListener('click', scrollTop));
+
+            function toggleTopVisibility() {
+                const page = document.querySelector('.page.is-open');
+                const y = page ? page.scrollTop : window.scrollY;
+                toTopButtons.forEach(btn => btn.classList.toggle('is-visible', y > 250));
+            }
+
+            window.addEventListener('scroll', toggleTopVisibility, { passive: true });
+            pages.forEach(p => p.addEventListener('scroll', toggleTopVisibility, { passive: true }));
+            toggleTopVisibility();
+
+            // prevent demo forms from reloading the page
+            document.querySelectorAll('form').forEach(f => f.addEventListener('submit', (e) => e.preventDefault()));
         })();
     </script>
-
-
 </body>
 
 </html>
