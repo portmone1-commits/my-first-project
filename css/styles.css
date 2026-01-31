@@ -25,7 +25,7 @@
     --shadow: 0 6px 18px rgba(0, 0, 0, .12);
     --shadow-soft: 0 2px 12px rgba(0, 0, 0, .08);
 
-    --container: 1220px;
+    --container: 1488px;
     --header-h: 86px;
 }
 
@@ -83,6 +83,91 @@ a {
 
 .main {
     padding: 26px 0 44px;
+}
+
+/* ===== SVG ICONS (paste near top, after reset/base) ===== */
+.svg-icon {
+    display: block;
+    flex-shrink: 0;
+
+}
+
+.lang__icon,
+.selectbar__arrow,
+.mini__icon,
+.mini__caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* globe у хедері */
+.lang__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* стрілки dropdown */
+.svg-icon--chev {
+    transform: rotate(180deg);
+    /* якщо дивиться не вниз — зміниш на 0deg/90deg */
+}
+
+/* selectbar: щоб стрілка стала по центру */
+.selectbar__arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* mini inputs: вирівнюємо іконку та caret */
+.mini__icon,
+.mini__caret {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== ICONS / UI ===== */
+.ui-icon {
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.lang-btn,
+.nav-link--cabinet,
+.select-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* поле з іконкою справа (календар) */
+.date-control {
+    position: relative;
+    display: block;
+}
+
+.date-input {
+    width: 100%;
+    padding-right: 44px;
+    /* місце під іконку */
+}
+
+.ui-icon--calendar {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+/* стрілка в dropdown */
+.ui-icon--chev {
+    transform: rotate(180deg);
+    /* якщо треба — зміниш кут */
 }
 
 /* ===== HEADER ===== */
@@ -207,7 +292,7 @@ a {
 .hero__banner {
     position: relative;
     height: 369px;
-    border-radius: var(--radius-sm);
+
     overflow: hidden;
     background:
         linear-gradient(rgba(0, 0, 0, .18), rgba(0, 0, 0, .18)),
@@ -238,8 +323,8 @@ a {
 /* ===== SLIDER ===== */
 .slider {
     position: relative;
+
     margin-top: 26px;
-    border-radius: var(--radius-sm);
     overflow: hidden;
     box-shadow: var(--shadow-soft);
     background: #eee;
@@ -251,36 +336,13 @@ a {
     inset: 0;
     background: url("../images/slider-01.jpg") center/cover no-repeat;
     filter: saturate(1.05);
+    pointer-events: none;
 }
 
-.slider__note {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: min(72%, 900px);
-    background: rgba(233, 231, 229, .78);
-    padding: 16px 18px 18px;
-    border-top-right-radius: var(--radius-md);
-    backdrop-filter: blur(3px);
-}
-
-.slider__text {
-    margin: 0 0 14px;
-    font-size: 13px;
-    line-height: 1.35;
-    font-style: italic;
-    max-width: 720px;
-}
-
-.slider__btn {
-    position: absolute;
-    right: 14px;
-    top: 14px;
-}
 
 .slider__arrow {
     position: absolute;
-    right: 14px;
+    right: 24px;
     top: 50%;
     transform: translateY(-50%);
     width: 58px;
@@ -291,26 +353,102 @@ a {
     color: #fff;
     font-size: 40px;
     line-height: 1;
+    z-index: 10;
+    pointer-events: auto;
 }
 
 .slider__arrow:hover {
     background: rgba(255, 255, 255, .24);
 }
 
-.dots {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
-    margin-top: 14px;
+/* ===== SLIDER note (pixel close to project) ===== */
+
+.slider__note {
+    position: absolute;
+    width: 1112px;
+    height: 167px;
+    left: 0;
+    bottom: 0;
+    padding: 18px 22px 44px;
+    /* низ більший, щоб влізли dots */
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(6px);
+    display: block;
+    overflow: visible;
+    z-index: 10;
+    justify-content: space-between;
+    gap: 24px;
+    line-height: normal;
 }
 
+.slider__text {
+    margin: 0;
+    font-size: 13px;
+    line-height: 18px;
+    font-style: italic;
+    font-weight: 700;
+    max-width: calc(100% - 300px);
+    display: -webkit-box;
+    color: rgba(0, 0, 0, .72);
+    line-height: 1.35;
+    letter-spacing: normal;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
+
+}
+
+/* кнопка в правому верхньому куті панелі */
+
+.slider__btn {
+    position: absolute;
+    right: 0;
+
+    /* ВАРІАНТ 1: повністю над панеллю (як на твоєму відчутті зі скріну) */
+    top: -38px;
+    /* підкрути на ±10px під макет */
+
+    /* ВАРІАНТ 2: напівперекриття панелі (якщо треба “наїзд” на note) */
+    /* top: -34px; */
+    /* ~половина висоти кнопки */
+
+    height: 68px;
+    /* Figma показує ~68px */
+    padding: 0 28px;
+    border-radius: 999px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    line-height: 1;
+    white-space: nowrap;
+
+    z-index: 20;
+    /* поверх note */
+}
+
+/* dots тепер реально в панелі */
+.slider__note .dots {
+    position: absolute;
+    left: 50%;
+    bottom: 14px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    margin: 0;
+}
+
+/* як у проекті: м’якіші та трохи менші */
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     border: 0;
     background: #3c8a3c;
-    opacity: .45;
+    opacity: .35;
 }
 
 .dot.is-active {
@@ -324,7 +462,7 @@ a {
     margin: 26px auto 0;
 
     background: #cfcfcf;
-    border-radius: 18px;
+
 
     /* прибираємо "сіру обводку" і темний inset */
     box-shadow: var(--shadow-soft);
@@ -532,7 +670,7 @@ a {
     overflow: hidden;
     background:
         linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)),
-        url("./images/about.jpg") center/cover no-repeat;
+        url("../images/image5.jpg") center/cover no-repeat;
     box-shadow: var(--shadow-soft);
 }
 

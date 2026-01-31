@@ -1,1 +1,1 @@
-# my-first-project
+# my-first-project Ця робота створена для завдання.
