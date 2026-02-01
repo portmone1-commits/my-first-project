@@ -42,13 +42,13 @@
 
             <button class="lang" type="button" aria-label="Мова: українська">
                 <span class="lang__icon" aria-hidden="true">
-                    <span class="lang__icon" aria-hidden="true">
-                        <svg class="svg-icon svg-icon--globe" width="22" height="22" aria-hidden="true">
-                            <use href="./images/icon.svg#icon-fluent_globe-20-regular"></use>
-                        </svg>
-                    </span>
-                    <span class="lang__text">UA</span>
+                    <svg class="svg-icon svg-icon--globe" width="32" height="32" aria-hidden="true">
+                        <use href="./images/icon.svg#icon-fluent_globe-20-regular"></use>
+                    </svg>
+                </span>
+                <span class="lang__text">UA</span>
             </button>
+
         </div>
     </header>
 
@@ -58,7 +58,7 @@
             <div class="hero__banner" role="img" aria-label="Гори та ліс">
 
                 <div class="hero__overlay">
-                    <h1 class="hero__title">HolidayTime</h1>
+                    <h1 class="hero__title">Time to relax</h1>
                     <p class="hero__subtitle">Автентичний відпочинок серед українського колориту!</p>
                 </div>
             </div>
@@ -68,12 +68,14 @@
         <section class="container">
             <div class="slider">
                 <div class="slider__media" aria-hidden="true"></div>
+
                 <div class="slider__note">
                     <p class="slider__text">
                         Полонини Карпат, у селі Орів посеред гір розташувався затишний куточок для незабутніх вражень.
                         Справжні українські гори, власноручне сироваріння на полонині, водоспади та вікові дерева
                         чекають на Вас.
                     </p>
+
                     <button class="btn btn--pill btn--navy slider__btn" type="button" data-nav="booking">
                         Переглянути <span aria-hidden="true">→</span>
                     </button>
@@ -87,14 +89,15 @@
                         <button class="dot" type="button" aria-label="Слайд 6"></button>
                         <button class="dot" type="button" aria-label="Слайд 7"></button>
                     </div>
-
-
-                    <button class="slider__arrow" type="button" aria-label="Перейти до бронювання" data-nav="booking">
-                        <span aria-hidden="true">›</span>
-                    </button>
-
                 </div>
+
+                <!-- ✅ Ось тут! ПІСЛЯ .slider__note -->
+                <button class="slider__arrow" type="button" aria-label="Наступний слайд">
+                    <span aria-hidden="true">›</span>
+                </button>
+            </div>
         </section>
+
 
         <section class="container">
             <div class="feature">
@@ -139,7 +142,7 @@
         <div class="container page__content">
             <div class="about-hero" role="img" aria-label="Ліс та вода">
                 <div class="about-hero__overlay">
-                    <div class="about-hero__brand">HolidayTime</div>
+                    <div class="about-hero__brand">Time to relax</div>
                     <div class="about-hero__tag">
                         Відпочинок, емоції, враження, нетипові маршрути, неймовірні локації —<br />
                         це все про сільський еко-туризм в Україні
@@ -308,7 +311,7 @@
             <div class="booking-list">
                 <!-- Card 1 -->
                 <article class="booking-card">
-                    <img class="booking-card__img" src="./images/booking-01.jpg" alt="Незвідана Бакота"
+                    <img class="booking-card__img" src="../images/image5.jpg" alt="Незвідана Бакота"
                         onerror="this.style.display='none'">
                     <div class="booking-card__body">
                         <div class="booking-card__head">
@@ -321,16 +324,16 @@
                             захоплює своїми просторами та незвичною атмосферою. Бджільництво, свіжий мед із польових
                             трав, дотик до природи.
                         </p>
-                        <button class="btn btn--pill btn--navy booking-card__btn" type="button"
-                            data-open="booking-house">
-                            Детальніше
-                        </button>
+
                     </div>
+                    <button class="btn btn--pill btn--navy booking-card__btn" type="button" data-open="booking-house">
+                        Детальніше
+                    </button>
                 </article>
 
                 <!-- Card 2 (the one from Home slider) -->
                 <article class="booking-card">
-                    <img class="booking-card__img" src="./images/booking-02.jpg" alt="Полонини Карпат"
+                    <img class="booking-card__img" src="../images/image8.jpg" alt="Полонини Карпат"
                         onerror="this.style.display='none'">
                     <div class="booking-card__body">
                         <div class="booking-card__head">
@@ -343,15 +346,15 @@
                             Справжні українські гори, власноручне сироваріння на полонині, водоспади та вікові дерева
                             чекають на Вас.
                         </p>
-                        <button class="btn btn--pill btn--navy booking-card__btn" type="button"
-                            data-open="booking-house">
-                            Детальніше
-                        </button>
+
                     </div>
+                    <button class="btn btn--pill btn--navy booking-card__btn" type="button" data-open="booking-house">
+                        Детальніше
+                    </button>
                 </article>
 
                 <article class="booking-card">
-                    <img class="booking-card__img" src="./images/booking-03.jpg" alt="Автентична Київщина"
+                    <img class="booking-card__img" src="../images/image6.jpg" alt="Автентична Київщина"
                         onerror="this.style.display='none'">
                     <div class="booking-card__body">
                         <div class="booking-card__head">
@@ -364,15 +367,15 @@
                             Дерев’яні млини, запашний хліб, приготовлений своїми руками, українські пісні та багато
                             іншого чекає на вас уже зараз.
                         </p>
-                        <button class="btn btn--pill btn--navy booking-card__btn" type="button"
-                            data-open="booking-house">
-                            Детальніше
-                        </button>
+
                     </div>
+                    <button class="btn btn--pill btn--navy booking-card__btn" type="button" data-open="booking-house">
+                        Детальніше
+                    </button>
                 </article>
 
                 <article class="booking-card">
-                    <img class="booking-card__img" src="./images/booking-04.jpg" alt="Нетипова Одещина"
+                    <img class="booking-card__img" src="../images/image7.jpg" alt="Нетипова Одещина"
                         onerror="this.style.display='none'">
                     <div class="booking-card__body">
                         <div class="booking-card__head">
@@ -386,11 +389,11 @@
                             Дунай і Чорне море.
                             Люди пересуваються переважно човнами. Нетипове українське село не залишить Вас без вражень.
                         </p>
-                        <button class="btn btn--pill btn--navy booking-card__btn" type="button"
-                            data-open="booking-house">
-                            Детальніше
-                        </button>
+
                     </div>
+                    <button class="btn btn--pill btn--navy booking-card__btn" type="button" data-open="booking-house">
+                        Детальніше
+                    </button>
                 </article>
             </div>
         </div>

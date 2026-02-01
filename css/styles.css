@@ -26,7 +26,7 @@
     --shadow-soft: 0 2px 12px rgba(0, 0, 0, .08);
 
     --container: 1488px;
-    --header-h: 86px;
+    --header-h: 55px;
 }
 
 *,
@@ -171,87 +171,96 @@ a {
 }
 
 /* ===== HEADER ===== */
+/* ===== HEADER (single source of truth) ===== */
+
 .header {
     position: fixed;
-    inset: 0 0 auto 0;
-    height: var(--header-h);
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
     background: var(--navy);
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    box-shadow: var(--shadow-soft);
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background: #0f8dff;
+    /* піджени під макет */
 }
 
 .header__inner {
+    height: var(--header-h);
+    /* 55px */
     display: flex;
     align-items: center;
-    gap: 26px;
+    justify-content: space-between;
+    gap: 24px;
 }
 
+/* LOGO pill */
 .brand {
     display: inline-flex;
     align-items: center;
 }
 
 .brand__pill {
-    width: 130px;
-    height: 48px;
-    background: var(--white);
-    border-radius: 999px;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: inset 0 0 0 1px rgba(46, 53, 80, .18);
+    height: 36px;
+    padding: 0 16px;
+    background: #fff;
+    border-radius: 999px;
 }
 
-.brand__mark {
-    transform: translateY(1px);
-}
-
-.brand__logo {
-    display: block;
-    max-width: 96px;
-    height: auto;
-}
-
+/* NAV centered */
 .nav {
     flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .nav__list {
+    display: flex;
+    align-items: center;
     margin: 0;
     padding: 0;
     list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 26px;
 }
 
 .nav__item {
     position: relative;
-    padding: 0 18px;
+    padding: 0 26px;
 }
 
-.nav__item:not(:first-child)::before {
+.nav__item+.nav__item::before {
     content: "";
     position: absolute;
-    left: -4px;
+    left: 0;
     top: 50%;
-    width: 2px;
-    height: 34px;
-    background: rgba(255, 255, 255, .55);
     transform: translateY(-50%);
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, .35);
 }
 
+/* твої nav__link це <button> */
 .nav__link {
     background: transparent;
     border: 0;
     padding: 0;
+    cursor: pointer;
+
     color: #fff;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: .06em;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .08em;
     text-transform: uppercase;
     line-height: 1.1;
 }
@@ -260,28 +269,35 @@ a {
     opacity: .85;
 }
 
+/* LANG (icon + UA in one row) */
 .lang {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 10px;
+
     background: transparent;
     border: 0;
+    padding: 0;
+    cursor: pointer;
+
     color: #fff;
     font-weight: 700;
 }
 
 .lang__icon {
-    width: 44px;
-    height: 44px;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, .75);
     display: grid;
     place-items: center;
-    border-radius: 999px;
-    border: 2px solid rgba(255, 255, 255, .7);
 }
 
 .lang__text {
     font-size: 14px;
-    letter-spacing: .06em;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    line-height: 1;
 }
 
 /* ===== HERO ===== */
@@ -342,23 +358,41 @@ a {
 
 .slider__arrow {
     position: absolute;
-    right: 24px;
+    right: 28px;
     top: 50%;
     transform: translateY(-50%);
-    width: 58px;
-    height: 58px;
-    border-radius: 999px;
+    z-index: 20;
+
+    width: 64px;
+    /* зона кліку */
+    height: 64px;
+
+    background: transparent;
+    /* прибрати фон */
     border: 0;
-    background: rgba(255, 255, 255, .18);
+    border-radius: 0;
+    /* прибрати круг */
+    padding: 0;
+
+    display: grid;
+    place-items: center;
+
     color: #fff;
-    font-size: 40px;
     line-height: 1;
-    z-index: 10;
-    pointer-events: auto;
+}
+
+/* сама стрілка */
+.slider__arrow span {
+    display: block;
+    font-size: 64px;
+    /* піджени */
+    transform: translateX(2px);
+    /* легкий зсув як у макеті */
+    filter: drop-shadow(0 2px 10px rgba(0, 0, 0, .35));
 }
 
 .slider__arrow:hover {
-    background: rgba(255, 255, 255, .24);
+    opacity: .85;
 }
 
 /* ===== SLIDER note (pixel close to project) ===== */
@@ -665,7 +699,7 @@ a {
 /* ===== About hero ===== */
 .about-hero {
     height: 240px;
-    border-radius: var(--radius-sm);
+
     border: 10px solid rgba(255, 255, 255, .9);
     overflow: hidden;
     background:
@@ -724,11 +758,15 @@ a {
 .map-wrap {
     grid-column: 2 / span 2;
     justify-self: end;
+    border: 3px solid rgba(0, 0, 0, 0.05);
+    border-radius: 40px;
+    width: 577px;
+    height: 335px;
 }
 
 .map {
     width: min(720px, 100%);
-    height: 320px;
+    height: 335px;
     border: 0;
     border-radius: 18px;
     box-shadow: var(--shadow-soft);
@@ -818,72 +856,112 @@ a {
     color: #0e1020;
 }
 
+/* ===== BOOKING LIST ===== */
 .booking-list {
     display: grid;
-    gap: 26px;
+    gap: 22px;
+    margin-top: 22px;
 }
 
+/* ===== CARD LAYOUT: img | body | button-area ===== */
 .booking-card {
-    position: relative;
-    background: #d8d8d8;
-    border: 1px solid rgba(46, 53, 80, .18);
-    box-shadow: var(--shadow-soft);
-    padding: 18px;
     display: grid;
-    grid-template-columns: 380px 1fr;
-    gap: 18px;
-    align-items: stretch;
+    grid-template-columns: 420px 720px 1fr;
+    align-items: center;
+    column-gap: 28px;
+    padding: 18px 22px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, .18);
+    min-height: 240px;
 }
 
+/* IMAGE like in project (white frame) */
 .booking-card__img {
-    width: 100%;
-    height: 168px;
+    width: 480px;
+    height: 240px;
     object-fit: cover;
-    border: 8px solid rgba(255, 255, 255, .9);
-    background: #bdbdbd;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .10);
+
 }
 
+/* BODY (lavender panel) */
 .booking-card__body {
-    background: var(--panel);
-    padding: 16px 16px 18px;
+    background: rgba(198, 199, 220, .75);
+    width: 720px;
+    min-height: 160px;
+    padding: 14px 56px 14px 18px;
+    display: block;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
 }
 
+/* HEAD: title + star */
 .booking-card__head {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    position: relative;
+    margin-bottom: 10px;
 }
 
+/* title like project: italic + underline */
 .booking-card__title {
-    margin: 0;
+    margin: 0 0 8px;
+    font-size: 26px;
+    font-weight: 800;
     font-style: italic;
-    font-size: 22px;
     text-decoration: underline;
+    color: #1f2433;
 }
 
-.booking-card__text {
-    margin: 10px 0 0;
-    font-size: 13px;
-    line-height: 1.4;
-    color: #2b3147;
-    text-align: center;
+/* thin divider line under title */
+.booking-card__title::after {
+    content: "";
+    display: block;
+    height: 2px;
+    background: rgba(255, 255, 255, .55);
+    margin-top: 8px;
 }
 
-.booking-card__btn {
-    position: absolute;
-    right: -36px;
-    bottom: 16px;
-    min-width: 150px;
-}
-
+/* STAR top-right */
 .star {
-    margin-left: auto;
+    position: absolute;
+    right: 14px;
+    top: 4px;
+
+    width: 34px;
+    height: 34px;
     border: 0;
     background: transparent;
-    color: #fff;
+
+    color: rgba(255, 255, 255, .9);
     font-size: 26px;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, .35);
+    line-height: 1;
+}
+
+/* DESCRIPTION */
+.booking-card__text {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: rgba(0, 0, 0, .72);
+    max-width: 520px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+}
+
+/* BUTTON: right column, centered vertically */
+.booking-card__btn {
+    position: static;
+    /* або просто видали position/right/top/transform */
+    justify-self: end;
+    align-self: center;
+}
+
+/* OPTIONAL: якщо хочеш щоб кнопка була рівно по правому краю card */
+.booking-card__btn.btn--pill {
+    border-radius: 999px;
 }
 
 /* ===== Booking house ===== */
@@ -902,7 +980,7 @@ a {
 
 .house-top__img {
     min-height: 250px;
-    background: url("./images/house-01.jpg") center/cover no-repeat;
+    background: url("../images/image5.jpg") center/cover no-repeat;
 }
 
 .house-top__desc {
