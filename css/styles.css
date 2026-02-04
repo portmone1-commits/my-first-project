@@ -171,8 +171,6 @@ a {
 }
 
 /* ===== HEADER ===== */
-/* ===== HEADER (single source of truth) ===== */
-
 .header {
     position: fixed;
     top: 0;
@@ -857,106 +855,144 @@ a {
 }
 
 /* ===== BOOKING LIST ===== */
+/* ===== BOOKING LIST ===== */
 .booking-list {
     display: grid;
     gap: 22px;
     margin-top: 22px;
 }
 
-/* ===== CARD LAYOUT: img | body | button-area ===== */
+/* Картка: фон + розміри */
 .booking-card {
-    display: grid;
-    grid-template-columns: 420px 720px 1fr;
-    align-items: center;
-    column-gap: 28px;
-    padding: 18px 22px;
-    background: transparent;
-    border: 1px solid rgba(0, 0, 0, .18);
-    min-height: 240px;
+    width: 1489px;
+    height: 300px;
+    background: #bdbdc6;
+    position: relative;
+    padding: 0 40px;
+    box-sizing: border-box;
 }
 
-/* IMAGE like in project (white frame) */
+/* ✅ ГРІД робимо тут, бо всі елементи всередині body */
+.booking-card__body {
+    height: 100%;
+    display: grid;
+
+    /* 2 колонки як у проєкті: фото | правий контент */
+    grid-template-columns: 520px 712px;
+    column-gap: 64px;
+
+    /* 2 рядки справа: заголовок | текст */
+    grid-template-rows: 68px 1fr;
+
+    align-items: start;
+    position: relative;
+}
+
+/* IMAGE (white frame) — ліва колонка, на 2 рядки */
 .booking-card__img {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+
     width: 480px;
     height: 240px;
     object-fit: cover;
+
     background: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, .10);
+    padding: 18px;
+    /* тонша рамка як у макеті */
+    box-sizing: border-box;
 
+    align-self: center;
+    /* вертикально по центру лівої зони */
+    justify-self: start;
 }
 
-/* BODY (lavender panel) */
-.booking-card__body {
-    background: rgba(198, 199, 220, .75);
-    width: 720px;
-    min-height: 160px;
-    padding: 14px 56px 14px 18px;
-    display: block;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-}
-
-/* HEAD: title + star */
+/* HEAD — права колонка, верхній рядок */
 .booking-card__head {
+    grid-column: 2;
+    grid-row: 1;
+
     position: relative;
-    margin-bottom: 10px;
+    padding-right: 70px;
+    /* резерв під ⭐ */
+    height: 50px;
+    margin-top: 18px;
 }
 
-/* title like project: italic + underline */
-.booking-card__title {
-    margin: 0 0 8px;
-    font-size: 26px;
-    font-weight: 800;
-    font-style: italic;
-    text-decoration: underline;
-    color: #1f2433;
-}
-
-/* thin divider line under title */
-.booking-card__title::after {
+/* лінія під заголовком, не під зіркою */
+.booking-card__head::after {
     content: "";
-    display: block;
-    height: 2px;
-    background: rgba(255, 255, 255, .55);
-    margin-top: 8px;
+    position: absolute;
+    left: 0;
+    right: 70px;
+    bottom: 8px;
+    height: 3px;
+    background: #ffffff;
+    opacity: 0.85;
 }
 
-/* STAR top-right */
+/* title */
+.booking-card__title {
+    margin: 0;
+    font: italic 700 36px/47px "PT Sans", sans-serif;
+    color: #353c57;
+
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
+
+/* ⭐ — в правому верхньому куті HEAD */
 .star {
     position: absolute;
-    right: 14px;
-    top: 4px;
+    right: 0;
+    top: 0;
 
-    width: 34px;
-    height: 34px;
+    width: 50px;
+    height: 50px;
+
     border: 0;
     background: transparent;
+    padding: 0;
 
-    color: rgba(255, 255, 255, .9);
-    font-size: 26px;
-    line-height: 1;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 42px;
+    line-height: 50px;
+    text-align: center;
 }
 
-/* DESCRIPTION */
+/* TEXTBOX — права колонка, нижній рядок */
+.booking-card__textbox {
+    grid-column: 2;
+    grid-row: 2;
+
+    width: 712px;
+    height: 184px;
+
+    background: #d7d7dd;
+    margin-top: 16px;
+    padding: 18px 22px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .booking-card__text {
     margin: 0;
-    font-size: 13px;
-    line-height: 1.45;
-    color: rgba(0, 0, 0, .72);
-    max-width: 520px;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    overflow: hidden;
+    width: 665px;
+    font: 400 22px/1.25 "PT Sans", sans-serif;
+    color: #202846;
+    text-align: center;
 }
 
-/* BUTTON: right column, centered vertically */
+/* BUTTON — внизу справа всієї карточки */
 .booking-card__btn {
-    position: static;
-    /* або просто видали position/right/top/transform */
-    justify-self: end;
-    align-self: center;
+    position: absolute;
+    right: 22px;
+    bottom: 14px;
+    z-index: 2;
 }
 
 /* OPTIONAL: якщо хочеш щоб кнопка була рівно по правому краю card */
@@ -1012,15 +1048,15 @@ a {
 }
 
 .g1 {
-    background: url("./images/house-02.jpg") center/cover no-repeat;
+    background: url("../images/house6.jpg") center/cover no-repeat;
 }
 
 .g2 {
-    background: url("./images/house-03.jpg") center/cover no-repeat;
+    background: url("./images/house7.jpg") center/cover no-repeat;
 }
 
 .g3 {
-    background: url("./images/house-04.jpg") center/cover no-repeat;
+    background: url("./images/house8.jpg") center/cover no-repeat;
 }
 
 .section-head {
